@@ -1,0 +1,105 @@
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - room_query
+  - room_number
+  - cleanroom_query
+  - clean_now
+  - clean_later
+  - simple
+  - deluxe
+  - test
+
+entities:
+  - room_number
+  - book
+
+Slots:
+  room_number:
+    type: text
+  book:
+    type: text
+
+actions:
+  - utter_greet
+  - utter_cheer_up
+  - utter_did_that_help
+  - utter_happy
+  - utter_goodbye
+  - utter_iamabot
+  - utter_testresp1
+  - utter_testresp2
+  - utter_roomquery
+  - utter_roomtypequery
+  - utter_deluxeroom
+  - utter_simpleroom
+  - utter_cleantimequery
+  - utter_cleannow
+  - utter_cleanlater
+  - test_custom_action
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_testresp1:
+  - text: "yes sir, we have rooms for you"
+  utter_testresp2:
+  - text: "what kind of rooms do you want??"
+
+  utter_roomquery:
+    - text: "How many rooms would you like to book?"
+
+  utter_roomtypequery:
+    - text: "What type of room would you want to book?"
+      buttons:
+        -  title: "Simple"
+           payload: "/simple"
+        -  title: "Deluxe"
+           payload: "/deluxe"
+
+  utter_simpleroom:
+    - text: "You have chosen to book {room_number} of simple category"
+
+  
+  utter_deluxeroom:
+    - text: "You have chosen to book {room_number} of deluxe category"
+
+  utter_cleantimequery:
+    - text: "When should I arrange for a cleaning?"
+  
+  utter_cleannow:
+    - text: "Sure, I will send someone to your room right away."
+
+  utter_cleanlater:
+    - text: "Sure, I have scheduled a cleaning for 5 pm today."
+
+  
+
+
+  
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
